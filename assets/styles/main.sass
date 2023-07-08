@@ -1,1 +1,44 @@
 @import "reset"
+
+$border: 1px solid #000
+
+.fixtureRow
+  .firstCol
+    width: 400px
+    border-right: $border
+  .topArea
+    height: 16px
+  .contentArea
+     height: 32px
+  .topArea, .contentArea
+    border: $border
+    display: flex
+    .otherFields
+      display: flex
+      flex-direction: row
+      flex-grow: 1
+
+  .columnGroup
+    display: flex
+    flex-direction: row
+    &:last-of-type
+      & :last-child
+        border-right: none
+    .column
+      border-right: $border
+      text-align: center
+      display: flex
+      justify-content: center
+      align-items: center
+    &.col2
+      flex-grow: 2
+      .column
+        width: 50%
+    &.col3
+      flex-grow: 3
+      .column
+        width: 33.3%
+    &.col4
+      flex-grow: 4
+      .column
+        width: 25%
