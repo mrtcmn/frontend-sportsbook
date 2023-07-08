@@ -2,6 +2,10 @@
 
 $border: 1px solid #000
 
+
+.fixtureItems
+  height: 95vh
+  overflow-y: auto
 .fixtureRow
   .firstCol
     width: 400px
@@ -12,11 +16,12 @@ $border: 1px solid #000
      height: 32px
   .topArea, .contentArea
     border: $border
+    border-bottom: none
     display: flex
     .otherFields
       display: flex
       flex-direction: row
-      flex-grow: 1
+      flex: 1 1 0px
 
   .columnGroup
     display: flex
@@ -31,14 +36,15 @@ $border: 1px solid #000
       justify-content: center
       align-items: center
     &.col2
-      flex-grow: 2
+      flex: 2 1 0px
       .column
         width: 50%
     &.col3
-      flex-grow: 3
+      flex: 3 1 0px
       .column
         width: 33.3%
     &.col4
-      flex-grow: 4
+      flex: 4 1 0px
+
       .column
         width: 25%
