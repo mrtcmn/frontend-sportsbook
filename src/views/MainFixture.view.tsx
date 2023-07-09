@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import FixtureRowComponent from '@src/components/FixtureRow.component';
 import { IFixtureItem } from '@src/dtos/fixture.dto';
 import { useVirtualizer } from '@tanstack/react-virtual';
+import BasketComponent from '@src/components/Basket.component';
 
 const MainFixtureView = () => {
   const parentRef = React.useRef();
@@ -64,6 +65,7 @@ const MainFixtureView = () => {
           </div>
         </div>
       </section>
+      <BasketComponent />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useMemo } from 'react';
-import { IBasketItem, IFixtureItem, IOCInnerObject } from '@src/dtos/fixture.dto';
+import { IBasketItem, IFixtureItem } from '@src/dtos/fixture.dto';
 import { BasketContext } from '@src/contexts/Basket.context';
 
 const MarketGroupComponent = ({ fixtureItem, cols, dataLocation }: { fixtureItem: IFixtureItem; cols: number[]; dataLocation: number }) => {
@@ -22,12 +22,20 @@ const MarketGroupComponent = ({ fixtureItem, cols, dataLocation }: { fixtureItem
   const { basketItems, setBasketItems } = useContext(BasketContext);
 
   const toggleOdds = (id: string, odd: number) => {
+    if (!(id && odd)) {
+      return;
+    }
+
     const finding = basketItems.find((item: IBasketItem) => item.id === id);
+    const multiwayCheck = basketItems.find((item: IBasketItem) => item.id.includes(`${fixtureItem.NID}_`));
 
     if (finding) {
       const removedVersion = basketItems.filter((i: IBasketItem) => i.id !== id);
       setBasketItems(removedVersion);
     } else {
+      if (multiwayCheck) {
+        return;
+      }
       setBasketItems([
         ...basketItems,
         {
