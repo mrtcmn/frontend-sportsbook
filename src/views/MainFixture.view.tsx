@@ -39,7 +39,47 @@ const MainFixtureView = () => {
 
   return (
     <div className={'mainFixture-wrapper'}>
-      <section className={'stickyHeader'}>header</section>
+      <section className={'stickyHeader'}>
+        <div className={'fixtureRow'}>
+          <div className={'topArea'}>
+            <div className={'firstCol'}>
+              <span>Event count: {data.length}</span>
+            </div>
+            <div className={'otherFields'}>
+              <div className={'columnGroup col2'}>
+                <div className={'column'}>Yorumlar</div>
+                <div className={'column'}></div>
+              </div>
+              <div className={'columnGroup col3'}>
+                <div className={'column'}>1</div>
+                <div className={'column'}>x</div>
+                <div className={'column'}>2</div>
+              </div>
+              <div className={'columnGroup col2'}>
+                <div className={'column'}>Alt</div>
+                <div className={'column'}>Üst</div>
+              </div>
+              <div className={'columnGroup col4'}>
+                <div className={'column'}>H1</div>
+                <div className={'column'}>1</div>
+                <div className={'column'}>x</div>
+                <div className={'column'}>2</div>
+              </div>
+              <div className={'columnGroup col4'}>
+                <div className={'column'}>H2</div>
+                <div className={'column'}>1-X</div>
+                <div className={'column'}>1-2</div>
+                <div className={'column'}>2-X</div>
+              </div>
+              <div className={'columnGroup col3'}>
+                <div className={'column'}>Var</div>
+                <div className={'column'}>Yok</div>
+                <div className={'column'}>99+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className={'fixtureItems'} ref={parentRef}>
         <div
           style={{

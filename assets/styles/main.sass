@@ -7,6 +7,7 @@ html
   font-size: 12px
   color: #a1a1a1
   background: #0e0e0e
+  user-select: none
 
 .stickyHeader
   position: absolute
@@ -14,9 +15,22 @@ html
   background: #222222
   width: 100%
   z-index: 10
+  .fixtureRow
+    .topArea
+      height: 32px
+      padding-right: 16px
 .fixtureItems
   height: 100vh
   overflow-y: auto
+  &::-webkit-scrollbar
+    width: 16px
+
+  &::-webkit-scrollbar-track
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3)
+
+  &::-webkit-scrollbar-thumb
+    background-color: darkgrey
+    outline: 1px solid slategrey
 
 .fixtureRowWrapper
   &:first-of-type
@@ -71,6 +85,7 @@ html
         width: 25%
     &.odd
       .column
+        color: white
         &:hover
           background: #3d3d3d
           cursor: pointer
