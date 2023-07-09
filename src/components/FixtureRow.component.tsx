@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { IFixtureItem } from '@src/dtos/fixture.dto';
+import MarketGroupComponent from '@src/components/MarketGroup.component';
 
 const FixtureRowComponent = ({ fixtureItem }: { fixtureItem: IFixtureItem }) => {
   const getPathValue = useCallback(
@@ -23,7 +24,9 @@ const FixtureRowComponent = ({ fixtureItem }: { fixtureItem: IFixtureItem }) => 
     <div className={'fixtureRow'}>
       <div className={'topArea'}>
         <div className={'firstCol'}>
-          {fixtureItem.D} {fixtureItem.DAY} {fixtureItem.LN}
+          <span>
+            {fixtureItem.D} {fixtureItem.DAY} {fixtureItem.LN}
+          </span>
         </div>
         <div className={'otherFields'}>
           <div className={'columnGroup col2'}>
@@ -61,7 +64,7 @@ const FixtureRowComponent = ({ fixtureItem }: { fixtureItem: IFixtureItem }) => 
       <div className={'contentArea'}>
         <div className={'firstCol'}>
           <span>
-            {fixtureItem.C} {fixtureItem.T} {fixtureItem.N}
+            <strong>{fixtureItem.C}</strong> {fixtureItem.T} {fixtureItem.N}
           </span>
         </div>
         <div className={'otherFields'}>
@@ -73,62 +76,20 @@ const FixtureRowComponent = ({ fixtureItem }: { fixtureItem: IFixtureItem }) => 
               <span>{getPathValue(['OCG', '1', 'MBS'])}</span>
             </div>
           </div>
-          <div className={'columnGroup col3'}>
+          <MarketGroupComponent fixtureItem={fixtureItem} cols={[0, 1, 2]} dataLocation={1} />
+          <MarketGroupComponent fixtureItem={fixtureItem} cols={[25, 26]} dataLocation={5} />
+          <MarketGroupComponent fixtureItem={fixtureItem} cols={[0, 0, 0, 0]} dataLocation={0} />
+          <MarketGroupComponent fixtureItem={fixtureItem} cols={[0, 3, 4, 5]} dataLocation={2} />
+
+          <div className={'columnGroup odd col3'}>
             <div className={'column'}>
-              <span>1</span>
+              <span></span>
             </div>
             <div className={'column'}>
-              <span>x</span>
+              <span></span>
             </div>
             <div className={'column'}>
-              <span>2</span>
-            </div>
-          </div>
-          <div className={'columnGroup col2'}>
-            <div className={'column'}>
-              <span>Alt</span>
-            </div>
-            <div className={'column'}>
-              <span>Üst</span>
-            </div>
-          </div>
-          <div className={'columnGroup col4'}>
-            <div className={'column'}>
-              <span>H1</span>
-            </div>
-            <div className={'column'}>
-              <span>1</span>
-            </div>
-            <div className={'column'}>
-              <span>x</span>
-            </div>
-            <div className={'column'}>
-              <span>2</span>
-            </div>
-          </div>
-          <div className={'columnGroup col4'}>
-            <div className={'column'}>
-              <span>H2</span>
-            </div>
-            <div className={'column'}>
-              <span>1-X</span>
-            </div>
-            <div className={'column'}>
-              <span>1-2</span>
-            </div>
-            <div className={'column'}>
-              <span>2-X</span>
-            </div>
-          </div>
-          <div className={'columnGroup col3'}>
-            <div className={'column'}>
-              <span>Var</span>
-            </div>
-            <div className={'column'}>
-              <span>Yok</span>
-            </div>
-            <div className={'column'}>
-              <span>99+</span>
+              <span>3</span>
             </div>
           </div>
         </div>

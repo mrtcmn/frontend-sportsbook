@@ -22,7 +22,8 @@ const MainFixtureView = () => {
   const rowVirtualizer = useVirtualizer({
     count: getCount(data),
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 48,
+    estimateSize: () => 62,
+    overscan: 5,
   });
 
   const fixtureItemsV: any = rowVirtualizer.getVirtualItems();
@@ -37,7 +38,7 @@ const MainFixtureView = () => {
 
   return (
     <div className={'mainFixture-wrapper'}>
-      <section className={'sticky-header'}>header</section>
+      <section className={'stickyHeader'}>header</section>
       <section className={'fixtureItems'} ref={parentRef}>
         <div
           style={{
@@ -56,7 +57,7 @@ const MainFixtureView = () => {
             }}
           >
             {fixtureItemsV.map((item: any) => (
-              <div key={item.key} data-index={item.index} ref={item.measureElement}>
+              <div className={'fixtureRowWrapper'} key={item.key} data-index={item.index} ref={item.measureElement}>
                 <FixtureRowComponent fixtureItem={data[item.index]} />
               </div>
             ))}

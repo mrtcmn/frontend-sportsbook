@@ -34,3 +34,11 @@ export interface IOCInnerObject {
   OD: number;
   IMF: boolean;
 }
+
+
+export interface IBasketItem {
+  id: string;
+  eventName: string;
+  eventCode: string;
+  odd: number;
+}
