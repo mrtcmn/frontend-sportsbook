@@ -1,7 +1,7 @@
 {
-  "name": "nesine-task",
+  "name": "frontend-task",
   "version": "1.0.0",
-  "description": "nesine-task",
+  "description": "frontend-task",
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config tools/webpack/webpack.config.dev.js",
