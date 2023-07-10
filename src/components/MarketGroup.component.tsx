@@ -68,12 +68,20 @@ const MarketGroupComponent = ({ fixtureItem, cols, dataLocation }: { fixtureItem
     [basketItems], // ...so as long as these dependencies don't change...
   );
 
+  const getIndex = (index: number) => {
+    // Because of missing data
+    if (cols && Array.isArray(cols) && cols[0] === 0 && dataLocation !== 1) {
+      return index - 1;
+    }
+    return index;
+  };
+
   return (
     <div className={'columnGroup odd col' + cols.length}>
       {cols.map((colsID: number, index: number) => (
         <div
           key={colsID}
-          className={'column ' + (isSelectedMarketGroup[index] ? 'active' : '')}
+          className={'column ' + (isSelectedMarketGroup[getIndex(index)] ? 'active' : '')}
           onClick={() =>
             toggleOdds(`${fixtureItem.NID}_${dataLocation}_${colsID}`, getPathValue(['OCG', dataLocation.toString(), 'OC', colsID.toString(), 'O']))
           }
